@@ -1,0 +1,314 @@
+/* Body & Image List Styles
+-------------------------------------------------------------- */
+body {
+  background: #6ceeb334;
+  font-family: "Arial", sans-serif;
+   margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #2d6a4f;
+  position: relative;
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Action Buttons */
+.actions button {
+  padding: 8px 15px;
+  border: none;
+  background: #ffb703;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Hamburger Menu (Hidden on Desktop) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile & Tablet Styles */
+@media (max-width: 768px) {
+  /* Show Hamburger Menu */
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide Navigation Links */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background: #2d6a4f;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 60px;
+    transition: left 0.3s ease-in-out;
+  }
+
+  /* Show Nav when active */
+  .nav-links.active {
+    left: 0;
+  }
+
+  /* Overlay */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+}
+
+.img-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.img-list li {
+  border: 5px solid transparent;
+  box-sizing: border-box;
+  width: 33.33%;
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+.img-list img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/* Image Placeholder Styles
+-------------------------------------------------------------- */
+.img-placeholder:before,
+.img-placeholder:after {
+  padding-top: 33.33%;
+  content: "";
+  display: block;
+}
+.img-placeholder {
+  background: #2c3e50;
+  box-shadow: 0 0 0 8px #222 inset, 0 0 0 9px #333 inset;
+  color: white;
+  line-height: 0;
+  text-align: center;
+  display: block;
+}
+
+/* The hover effect
+-------------------------------------------------------------- */
+
+.img-list li img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.img-list li:hover img {
+  transform: scale(1.02);
+}
+
+/* Default: 3 images per row (Desktop) */
+.img-list li {
+  width: 33.33%;
+}
+
+/* Tablet: 2 images per row */
+@media (max-width: 768px) {
+  .img-list li {
+    width: 50%;
+  }
+}
+
+/* Mobile: 1 image per row */
+@media (max-width: 480px) {
+  .img-list li {
+    width: 100%;
+  }
+}
+footer {
+  background: #2d6a4f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.footer-container {
+  margin: auto;
+  padding: 20px;
+}
+
+/* Main Sections Layout */
+.footer-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Individual Section */
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Links */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+/* Social Media */
+.social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-sections {
+    flex-direction: column; /* Stack sections vertically on mobile & tab */
+    align-items: center;
+  }
+}
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+  height: 120px;
+  width: 100%;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877f2;
+  color: #fff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #e4405f;
+  color: #fff;
+}
